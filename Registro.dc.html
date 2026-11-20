@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;background:#FBF5EC}*{box-sizing:border-box}a{color:#B3472A}a:hover{color:#8E3820}</style></helmet>
+<div data-screen-label="02 Registro" style="container-type:inline-size;background:#FBF5EC;color:#2B2420;font-family:Nunito, sans-serif;min-height:100%">
+  <header style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 48px;border-bottom:1px solid #E8DCCB">
+    <div style="display:flex;align-items:center;gap:10px"><svg width="38" height="26" viewBox="0 0 38 26"><path d="M4 20 Q19 -2 34 20" stroke="#B3472A" stroke-width="3.2" fill="none" stroke-linecap="round"></path><path d="M2 20 H36" stroke="#3E5C46" stroke-width="3.2" stroke-linecap="round"></path><circle cx="4" cy="20" r="4" fill="#B3472A"></circle><circle cx="34" cy="20" r="4" fill="#3E5C46"></circle></svg><a href="Landing.dc.html" style="font-family:Fredoka, sans-serif;font-weight:600;font-size:26px;color:inherit;text-decoration:none">Puentes</a></div>
+    <span style="font-size:15px;color:#6A5D53">¿Ya tienes cuenta? <a href="Descubrir.dc.html" style="font-weight:800">Ingresa aquí</a></span>
+  </header>
+  <div style="max-width:1120px;margin:0 auto;padding:40px 48px 64px;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <h1 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:44px;line-height:1.1">Creemos tu perfil</h1>
+      <p style="margin:0;font-size:17px;color:#5E5249">Elige tu camino. Toma unos 5 minutos y puedes guardar y seguir después.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <button onClick="{{ pickColegio }}" style="text-align:left;display:flex;gap:14px;align-items:center;padding:18px 20px;border-radius:20px;cursor:pointer;font-family:Nunito, sans-serif;background:{{ tabColegioBg }};border:2.5px solid {{ tabColegioBorder }};color:#2B2420">
+        <span style="flex:none;width:48px;height:48px;border-radius:14px;background:#B3472A;color:#FFFDF9;display:grid;place-items:center;font-family:Fredoka, sans-serif;font-weight:600;font-size:20px">C</span>
+        <span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:21px">Soy un colegio</span><span style="font-size:14px;color:#6A5D53">Profesor/a coordinador/a de un liceo público o subvencionado</span></span>
+      </button>
+      <button onClick="{{ pickOsc }}" style="text-align:left;display:flex;gap:14px;align-items:center;padding:18px 20px;border-radius:20px;cursor:pointer;font-family:Nunito, sans-serif;background:{{ tabOscBg }};border:2.5px solid {{ tabOscBorder }};color:#2B2420">
+        <span style="flex:none;width:48px;height:48px;border-radius:14px;background:#3E5C46;color:#FFFDF9;display:grid;place-items:center;font-family:Fredoka, sans-serif;font-weight:600;font-size:20px">O</span>
+        <span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:21px">Soy una organización</span><span style="font-size:14px;color:#6A5D53">Fundación, corporación, junta de vecinos u otra OSC</span></span>
+      </button>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:800">
+      <span style="display:flex;align-items:center;gap:8px;color:#2B2420"><span style="width:28px;height:28px;border-radius:50%;background:#3E5C46;color:#fff;display:grid;place-items:center">✓</span>Cuenta</span>
+      <span style="flex:1;max-width:80px;height:3px;border-radius:2px;background:#3E5C46"></span>
+      <span style="display:flex;align-items:center;gap:8px;color:#2B2420"><span style="width:28px;height:28px;border-radius:50%;background:#B3472A;color:#fff;display:grid;place-items:center">2</span>Perfil</span>
+      <span style="flex:1;max-width:80px;height:3px;border-radius:2px;background:#E8DCCB"></span>
+      <span style="display:flex;align-items:center;gap:8px;color:#6A5D53"><span style="width:28px;height:28px;border-radius:50%;background:#F4EADB;color:#6A5D53;display:grid;place-items:center">3</span>{{ step3 }}</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:start">
+      <sc-if value="{{ isColegio }}" hint-placeholder-val="{{ true }}">
+        <div style="background:#FFFDF9;border:1.5px solid #E8DCCB;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:24px">
+          <h2 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:26px">Perfil del colegio</h2>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <label style="display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:14px;grid-column:1 / -1">Nombre del establecimiento<input value="Liceo Los Aromos" style="font:600 16px Nunito, sans-serif;padding:13px 14px;border-radius:14px;border:1.5px solid #D9CBB8;background:#FBF5EC;color:#2B2420"></input></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:14px">Comuna<select style="font:600 16px Nunito, sans-serif;padding:13px 14px;border-radius:14px;border:1.5px solid #D9CBB8;background:#FBF5EC;color:#2B2420"><option>Maipú</option><option>Puente Alto</option><option>La Florida</option><option>Pudahuel</option></select></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:14px">N° de estudiantes<input value="864" style="font:600 16px Nunito, sans-serif;padding:13px 14px;border-radius:14px;border:1.5px solid #D9CBB8;background:#FBF5EC;color:#2B2420"></input></label>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-weight:800;font-size:14px">Dependencia</span>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ dependencias }}" as="d" hint-placeholder-count="3">
+                <button onClick="{{ d.pick }}" style="font:700 15px Nunito, sans-serif;padding:10px 16px;border-radius:999px;cursor:pointer;background:{{ d.bg }};color:{{ d.fg }};border:1.5px solid {{ d.border }}">{{ d.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-weight:800;font-size:14px">Intereses del curso <span style="font-weight:600;color:#6A5D53">· elige todos los que quieras</span></span>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ intereses }}" as="c" hint-placeholder-count="8">
+                <button onClick="{{ c.toggle }}" style="font:700 15px Nunito, sans-serif;padding:9px 15px;border-radius:999px;cursor:pointer;background:{{ c.bg }};color:{{ c.fg }};border:1.5px solid {{ c.border }}">{{ c.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-weight:800;font-size:14px">Horarios disponibles</span>
+            <div style="display:grid;grid-template-columns:90px repeat(5,1fr);gap:6px;font-size:13px;font-weight:800;text-align:center">
+              <span></span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span>
+              <sc-for list="{{ horarioRows }}" as="r" hint-placeholder-count="2">
+                <span style="text-align:left;align-self:center;color:#6A5D53">{{ r.label }}</span>
+                <sc-for list="{{ r.cells }}" as="h" hint-placeholder-count="5">
+                  <button onClick="{{ h.toggle }}" aria-label="{{ h.aria }}" style="height:40px;border-radius:12px;cursor:pointer;background:{{ h.bg }};border:1.5px solid {{ h.border }};color:#FFFDF9;font-weight:800">{{ h.mark }}</button>
+                </sc-for>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #EFE4D4"><button style="font:800 15px Nunito, sans-serif;background:none;border:none;color:#6A5D53;cursor:pointer">Guardar y seguir después</button><a href="Descubrir.dc.html" style="font:800 16px Nunito, sans-serif;padding:14px 26px;border-radius:999px;background:#B3472A;color:#FFFDF9;text-decoration:none">Continuar</a></div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isOsc }}">
+        <div style="background:#FFFDF9;border:1.5px solid #E8DCCB;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:24px">
+          <h2 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:26px">Perfil de la organización</h2>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <label style="display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:14px;grid-column:1 / -1">Nombre de la organización<input value="Fundación Raíces Urbanas" style="font:600 16px Nunito, sans-serif;padding:13px 14px;border-radius:14px;border:1.5px solid #D9CBB8;background:#FBF5EC;color:#2B2420"></input></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:14px">Causa principal<select style="font:600 16px Nunito, sans-serif;padding:13px 14px;border-radius:14px;border:1.5px solid #D9CBB8;background:#FBF5EC;color:#2B2420"><option>Medioambiente</option><option>Personas mayores</option><option>Educación</option><option>Alimentación</option></select></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:14px">Comuna<select style="font:600 16px Nunito, sans-serif;padding:13px 14px;border-radius:14px;border:1.5px solid #D9CBB8;background:#FBF5EC;color:#2B2420"><option>Maipú</option><option>Cerrillos</option><option>Estación Central</option></select></label>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-weight:800;font-size:14px">Tipos de voluntariado que ofrecen</span>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ tipos }}" as="c" hint-placeholder-count="6">
+                <button onClick="{{ c.toggle }}" style="font:700 15px Nunito, sans-serif;padding:9px 15px;border-radius:999px;cursor:pointer;background:{{ c.bg }};color:{{ c.fg }};border:1.5px solid {{ c.border }}">{{ c.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font-weight:800;font-size:14px">Verificación</span>
+            <div style="display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;background:#DFE8DB"><span style="width:36px;height:36px;border-radius:12px;background:#3E5C46;color:#fff;display:grid;place-items:center;font-weight:800">✓</span><span style="flex:1;font-size:15px"><b>Certificado de vigencia</b><br><span style="color:#3E5C46">certificado_vigencia_2026.pdf · subido</span></span></div>
+            <div style="display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;border:2px dashed #D9CBB8"><span style="width:36px;height:36px;border-radius:12px;background:#F6DCCF;color:#8E3820;display:grid;place-items:center;font-weight:800">↑</span><span style="flex:1;font-size:15px"><b>Protocolo de protección de menores</b><br><span style="color:#6A5D53">PDF o Word, máximo 10 MB</span></span><button style="font:800 14px Nunito, sans-serif;padding:9px 16px;border-radius:999px;border:1.5px solid #2B2420;background:transparent;cursor:pointer">Subir</button></div>
+            <label style="display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45"><input type="checkbox" checked style="width:20px;height:20px;accent-color:#3E5C46;margin-top:1px"></input>Declaro que las personas que acompañarán a estudiantes tienen su certificado de inhabilidades para trabajar con menores al día.</label>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #EFE4D4"><button style="font:800 15px Nunito, sans-serif;background:none;border:none;color:#6A5D53;cursor:pointer">Guardar y seguir después</button><a href="Panel%20OSC.dc.html" style="font:800 16px Nunito, sans-serif;padding:14px 26px;border-radius:999px;background:#3E5C46;color:#FFFDF9;text-decoration:none">Enviar a verificación</a></div>
+        </div>
+      </sc-if>
+
+      <aside style="display:flex;flex-direction:column;gap:16px;position:sticky;top:20px">
+        <span style="font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#6A5D53">Vista previa · así te verán</span>
+        <div style="background:#FFFDF9;border:1.5px solid #E8DCCB;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;gap:12px;align-items:center"><span style="width:52px;height:52px;border-radius:16px;background:{{ previewColor }};color:#FFFDF9;display:grid;place-items:center;font-family:Fredoka, sans-serif;font-weight:600;font-size:22px">{{ previewInitials }}</span><span style="display:flex;flex-direction:column"><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:20px">{{ previewName }}</span><span style="font-size:14px;color:#6A5D53">{{ previewSub }}</span></span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <sc-for list="{{ previewChips }}" as="p" hint-placeholder-count="3"><span style="padding:5px 11px;border-radius:999px;background:#F4EADB;font-size:13px;font-weight:700">{{ p }}</span></sc-for>
+          </div>
+          <sc-if value="{{ isOsc }}"><span style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:#FBEBC5;color:#7A5A12;font-weight:800;font-size:13px">Verificación en revisión · 2 a 3 días hábiles</span></sc-if>
+        </div>
+        <div style="padding:18px 20px;border-radius:20px;background:#F4EADB;font-size:15px;line-height:1.5;display:flex;flex-direction:column;gap:6px"><b>¿Para qué pedimos esto?</b><span style="color:#5E5249">{{ whyText }}</span></div>
+      </aside>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;path&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;colegio&quot;,&quot;osc&quot;],&quot;default&quot;:&quot;colegio&quot;,&quot;tsType&quot;:&quot;'colegio'|'osc'&quot;}}">
+class Component extends DCLogic {
+  state = {
+    path: new URLSearchParams(location.search).get('path') ?? this.props.path ?? 'colegio',
+    dep: 'Particular subvencionado',
+    intereses: ['Medioambiente', 'Personas mayores', 'Alimentación'],
+    horas: { 'Tarde-4': true, 'Tarde-2': true, 'Mañana-4': false },
+    tipos: ['Presencial', 'Recurrente', 'Para cursos completos']
+  };
+  componentDidUpdate(p) { if (p.path !== this.props.path && this.props.path) this.setState({ path: this.props.path }); }
+  chip(on, color) { return on ? { bg: color, fg: '#FFFDF9', border: color } : { bg: '#FFFDF9', fg: '#2B2420', border: '#D9CBB8' }; }
+  toggleIn(key, v) { this.setState(s => ({ [key]: s[key].includes(v) ? s[key].filter(x => x !== v) : [...s[key], v] })); }
+  renderVals() {
+    const s = this.state, isColegio = s.path === 'colegio';
+    const tab = on => on ? ['#FFFDF9', '#2B2420'] : ['#F4EADB', 'transparent'];
+    const [cb, cbo] = tab(isColegio), [ob, obo] = tab(!isColegio);
+    const days = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie'];
+    return {
+      isColegio, isOsc: !isColegio,
+      pickColegio: () => this.setState({ path: 'colegio' }), pickOsc: () => this.setState({ path: 'osc' }),
+      tabColegioBg: cb, tabColegioBorder: cbo, tabOscBg: ob, tabOscBorder: obo,
+      step3: isColegio ? 'Cursos' : 'Verificación',
+      dependencias: ['Municipal / SLEP', 'Particular subvencionado', 'Administración delegada'].map(l => ({ label: l, ...this.chip(s.dep === l, '#2B2420'), pick: () => this.setState({ dep: l }) })),
+      intereses: ['Medioambiente', 'Personas mayores', 'Educación', 'Animales', 'Alimentación', 'Cultura y arte', 'Tecnología', 'Salud', 'Deporte'].map(l => ({ label: l, ...this.chip(s.intereses.includes(l), '#B3472A'), toggle: () => this.toggleIn('intereses', l) })),
+      tipos: ['Presencial', 'Online', 'Híbrido', 'Puntual', 'Recurrente', 'Para cursos completos'].map(l => ({ label: l, ...this.chip(s.tipos.includes(l), '#3E5C46'), toggle: () => this.toggleIn('tipos', l) })),
+      horarioRows: ['Mañana', 'Tarde'].map(r => ({ label: r, cells: days.map((d, i) => { const k = r + '-' + i, on = !!s.horas[k]; return { aria: d + ' ' + r, bg: on ? '#B3472A' : '#FBF5EC', border: on ? '#B3472A' : '#D9CBB8', mark: on ? '✓' : '', toggle: () => this.setState(st => ({ horas: { ...st.horas, [k]: !st.horas[k] } })) }; }) })),
+      previewColor: isColegio ? '#B3472A' : '#3E5C46',
+      previewInitials: isColegio ? 'LA' : 'RU',
+      previewName: isColegio ? 'Liceo Los Aromos' : 'Fundación Raíces Urbanas',
+      previewSub: isColegio ? 'Maipú · ' + s.dep : 'Maipú · Medioambiente',
+      previewChips: isColegio ? s.intereses : s.tipos,
+      whyText: isColegio ? 'Con tu comuna, horarios e intereses la IA encuentra oportunidades cercanas y compatibles con la jornada escolar.' : 'Verificar a cada organización nos permite asegurar a colegios y apoderados que sus estudiantes estarán en un espacio seguro.'
+    };
+  }
+}
+</script>
+</body>
+</html>

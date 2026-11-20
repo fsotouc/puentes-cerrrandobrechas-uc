@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><script src="./image-slot.js"></script><style>body{margin:0;background:#FBF5EC}*{box-sizing:border-box}a{color:#B3472A}a:hover{color:#8E3820}</style></helmet>
+<div ref="{{ rootRef }}" data-screen-label="01 Landing" style="container-type:inline-size;background:#FBF5EC;color:#2B2420;font-family:Nunito, sans-serif;min-height:100%">
+  <header style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px clamp(18px,4cqi,56px);border-bottom:1px solid #E8DCCB">
+    <div style="display:flex;align-items:center;gap:10px"><svg width="38" height="26" viewBox="0 0 38 26"><path d="M4 20 Q19 -2 34 20" stroke="#B3472A" stroke-width="3.2" fill="none" stroke-linecap="round"></path><path d="M2 20 H36" stroke="#3E5C46" stroke-width="3.2" stroke-linecap="round"></path><circle cx="4" cy="20" r="4" fill="#B3472A"></circle><circle cx="34" cy="20" r="4" fill="#3E5C46"></circle></svg><a href="Landing.dc.html" style="font-family:Fredoka, sans-serif;font-weight:600;font-size:26px;color:inherit;text-decoration:none">Puentes</a></div>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:28px;font-weight:700;font-size:15px">
+        <a href="#como" style="color:#2B2420;text-decoration:none">Cómo funciona</a>
+        <a href="Descubrir.dc.html" style="color:#2B2420;text-decoration:none">Oportunidades</a>
+        <a href="Registro.dc.html?path=colegio" style="color:#2B2420;text-decoration:none">Para colegios</a>
+        <a href="Registro.dc.html?path=osc" style="color:#2B2420;text-decoration:none">Para organizaciones</a>
+      </nav>
+      <div style="display:flex;gap:10px"><a href="Descubrir.dc.html" style="font:800 15px Nunito, sans-serif;padding:11px 20px;border-radius:999px;border:2px solid #2B2420;background:transparent;color:#2B2420;text-decoration:none">Ingresar</a></div>
+    </sc-if>
+    <sc-if value="{{ narrow }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menú" style="width:44px;height:44px;border-radius:14px;border:2px solid #2B2420;background:transparent;display:grid;place-items:center;cursor:pointer"><svg width="20" height="14" viewBox="0 0 20 14"><path d="M1 1h18M1 7h18M1 13h12" stroke="#2B2420" stroke-width="2.4" stroke-linecap="round"></path></svg></button>
+    </sc-if>
+  </header>
+  <sc-if value="{{ menuOpen }}">
+    <nav style="display:flex;flex-direction:column;gap:4px;padding:12px 18px 20px;border-bottom:1px solid #E8DCCB;background:#FFFDF9;font-weight:800;font-size:17px">
+      <a href="#como" style="color:#2B2420;text-decoration:none;padding:12px 0">Cómo funciona</a>
+      <a href="Descubrir.dc.html" style="color:#2B2420;text-decoration:none;padding:12px 0">Oportunidades</a>
+      <a href="Descubrir.dc.html" style="color:#2B2420;text-decoration:none;padding:12px 0">Ingresar</a>
+    </nav>
+  </sc-if>
+
+  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,5cqi,64px);align-items:center;padding:clamp(32px,6cqi,80px) clamp(18px,4cqi,56px) clamp(40px,6cqi,72px)">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <span style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:#DFE8DB;color:#3E5C46;font-weight:800;font-size:14px"><span style="width:8px;height:8px;border-radius:50%;background:#3E5C46"></span>Voluntariado escolar en Chile</span>
+      <h1 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:clamp(38px,5.6cqi,70px);line-height:1.04;letter-spacing:-0.01em;text-wrap:balance">Que cada estudiante tenga la oportunidad de <span style="color:#B3472A">servir, aprender y conectar</span></h1>
+      <p style="margin:0;font-size:clamp(17px,1.6cqi,20px);line-height:1.55;color:#5E5249;max-width:540px;text-wrap:pretty">Puentes une a liceos públicos y subvencionados con organizaciones que necesitan manos jóvenes. Ustedes ponen las ganas; nosotros les ayudamos a encontrarse.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:4px">
+        <a href="Registro.dc.html?path=colegio" style="display:flex;flex-direction:column;gap:8px;padding:20px 22px;border-radius:22px;background:#B3472A;color:#FFFDF9;text-decoration:none;box-shadow:0 6px 0 #8E3820" style-hover="transform:translateY(-2px)">
+          <span style="display:flex;justify-content:space-between;align-items:center;font-family:Fredoka, sans-serif;font-weight:600;font-size:22px">Soy un colegio <span style="font-size:22px">→</span></span>
+          <span style="font-size:15px;line-height:1.4">Encuentra voluntariados para tus cursos y gestiona autorizaciones en un solo lugar.</span>
+        </a>
+        <a href="Registro.dc.html?path=osc" style="display:flex;flex-direction:column;gap:8px;padding:20px 22px;border-radius:22px;background:#3E5C46;color:#FFFDF9;text-decoration:none;box-shadow:0 6px 0 #2C4433" style-hover="transform:translateY(-2px)">
+          <span style="display:flex;justify-content:space-between;align-items:center;font-family:Fredoka, sans-serif;font-weight:600;font-size:22px">Soy una organización <span style="font-size:22px">→</span></span>
+          <span style="font-size:15px;line-height:1.4">Publica tus voluntariados y recibe estudiantes con ganas de aportar.</span>
+        </a>
+      </div>
+    </div>
+    <div style="position:relative;height:clamp(320px,40cqi,500px)">
+      <div style="position:absolute;inset:0 0 0 6%;border-radius:200px 200px 32px 32px;background:#F6DCCF;overflow:hidden">
+        <image-slot id="landing-hero" shape="rect" placeholder="Ilustración plana: jóvenes diversos armando un huerto comunitario juntos" style="width:100%;height:100%"></image-slot>
+      </div>
+      <svg viewBox="0 0 400 120" preserveAspectRatio="none" style="position:absolute;left:-2%;right:0;bottom:-28px;width:104%;height:90px;pointer-events:none"><path d="M14 96 Q107 10 200 96 Q293 10 386 96" stroke="#B3472A" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="2 12"></path><circle cx="14" cy="96" r="12" fill="#B3472A" stroke="#FBF5EC" stroke-width="5"></circle><circle cx="200" cy="96" r="12" fill="#E9B44C" stroke="#FBF5EC" stroke-width="5"></circle><circle cx="386" cy="96" r="12" fill="#3E5C46" stroke="#FBF5EC" stroke-width="5"></circle></svg>
+      <div style="position:absolute;top:22px;left:0;display:flex;align-items:center;gap:10px;padding:10px 14px 10px 10px;border-radius:18px;background:#FFFDF9;box-shadow:0 8px 24px rgba(80,50,30,.14);font-size:14px;font-weight:700"><span style="width:34px;height:34px;border-radius:50%;background:#DFE8DB;display:grid;place-items:center;font-weight:800;color:#3E5C46">94%</span><span>Afinidad con<br>Fundación Raíces Urbanas</span></div>
+    </div>
+  </section>
+
+  <section style="background:#3E5C46;color:#FFFDF9;padding:clamp(32px,4cqi,48px) clamp(18px,4cqi,56px)">
+    <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:28px">
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:clamp(40px,4.4cqi,56px);line-height:1">1.248</span><span style="font-size:16px;font-weight:700">estudiantes voluntarios</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:clamp(40px,4.4cqi,56px);line-height:1">18.630</span><span style="font-size:16px;font-weight:700">horas de servicio</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:clamp(40px,4.4cqi,56px);line-height:1;color:#F6C9B5">42</span><span style="font-size:16px;font-weight:700">colegios conectados</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:clamp(40px,4.4cqi,56px);line-height:1;color:#F6C9B5">67</span><span style="font-size:16px;font-weight:700">organizaciones sociales</span></div>
+    </div>
+    <p style="margin:22px 0 0;font-size:14px;color:#D8E3D4">Datos del piloto 2026 · Región Metropolitana y Región de Valparaíso</p>
+  </section>
+
+  <section id="como" style="padding:clamp(48px,7cqi,96px) clamp(18px,4cqi,56px)">
+    <div style="display:flex;flex-direction:column;gap:10px;max-width:640px;margin-bottom:40px">
+      <span style="font-weight:800;color:#B3472A;font-size:15px;letter-spacing:.06em;text-transform:uppercase">Cómo funciona</span>
+      <h2 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:clamp(30px,3.6cqi,46px);line-height:1.1;text-wrap:balance">Tres pasos para cruzar el puente</h2>
+    </div>
+    <div style="position:relative">
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}"><svg viewBox="0 0 1000 40" preserveAspectRatio="none" style="position:absolute;top:10px;left:4%;width:66%;height:40px"><path d="M0 30 Q250 -10 500 30 Q750 -10 1000 30" stroke="#E2CBB6" stroke-width="3" fill="none" stroke-dasharray="3 10" stroke-linecap="round"></path></svg></sc-if>
+      <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="width:60px;height:60px;border-radius:50%;background:#B3472A;color:#FFFDF9;display:grid;place-items:center;font-family:Fredoka, sans-serif;font-weight:600;font-size:28px;border:6px solid #FBF5EC">1</span>
+          <h3 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:24px">Cuéntanos quiénes son</h3>
+          <p style="margin:0;font-size:16px;line-height:1.55;color:#5E5249;text-wrap:pretty">El liceo indica su comuna, horarios e intereses. La organización, su causa y qué tipo de ayuda necesita.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="width:60px;height:60px;border-radius:50%;background:#E9B44C;color:#2B2420;display:grid;place-items:center;font-family:Fredoka, sans-serif;font-weight:600;font-size:28px;border:6px solid #FBF5EC">2</span>
+          <h3 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:24px">Les sugerimos el match</h3>
+          <p style="margin:0;font-size:16px;line-height:1.55;color:#5E5249;text-wrap:pretty">Nuestra IA propone oportunidades afines y explica por qué: cercanía, horario y causas en común.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="width:60px;height:60px;border-radius:50%;background:#3E5C46;color:#FFFDF9;display:grid;place-items:center;font-family:Fredoka, sans-serif;font-weight:600;font-size:28px;border:6px solid #FBF5EC">3</span>
+          <h3 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:24px">Participen y vean su huella</h3>
+          <p style="margin:0;font-size:16px;line-height:1.55;color:#5E5249;text-wrap:pretty">Con las autorizaciones listas, el curso participa. Las horas y habilidades quedan registradas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin:0 clamp(18px,4cqi,56px) clamp(48px,6cqi,80px);padding:clamp(24px,3.5cqi,40px);border-radius:28px;background:#FFFDF9;border:1.5px solid #E8DCCB;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px">
+    <div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:26px;line-height:1.15">Pensado para cuidar a menores de edad</h3></div>
+    <div style="display:flex;gap:12px"><span style="flex:none;width:36px;height:36px;border-radius:12px;background:#F6DCCF;display:grid;place-items:center;color:#8E3820;font-weight:800">✓</span><p style="margin:0;font-size:15px;line-height:1.5"><b>Autorización de apoderados</b> digital y obligatoria antes de cada actividad.</p></div>
+    <div style="display:flex;gap:12px"><span style="flex:none;width:36px;height:36px;border-radius:12px;background:#DFE8DB;display:grid;place-items:center;color:#3E5C46;font-weight:800">✓</span><p style="margin:0;font-size:15px;line-height:1.5"><b>OSC verificadas</b>: revisamos personalidad jurídica y protocolos de protección.</p></div>
+    <div style="display:flex;gap:12px"><span style="flex:none;width:36px;height:36px;border-radius:12px;background:#FBEBC5;display:grid;place-items:center;color:#7A5A12;font-weight:800">✓</span><p style="margin:0;font-size:15px;line-height:1.5"><b>Horas validadas</b> por el profesor o profesora a cargo.</p></div>
+  </section>
+
+  <footer style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:24px clamp(18px,4cqi,56px);border-top:1px solid #E8DCCB;font-size:14px;color:#6A5D53"><span>Puentes · Proyecto universitario con propósito social</span><span>contacto@puentes.cl</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { narrow: false, menuOpen: false };
+  rootRef = el => {
+    if (!el || el === this._el) return;
+    this._el = el; this.ro && this.ro.disconnect();
+    const upd = w => { const n = w < 760; if (n !== this.state.narrow) this.setState({ narrow: n, menuOpen: false }); };
+    this.ro = new ResizeObserver(e => upd(e[0].contentRect.width));
+    this.ro.observe(el); upd(el.getBoundingClientRect().width);
+  };
+    componentWillUnmount() { this.ro && this.ro.disconnect(); }
+  renderVals() {
+    const { narrow, menuOpen } = this.state;
+    return { rootRef: this.rootRef, narrow, wide: !narrow, menuOpen: narrow && menuOpen, toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })) };
+  }
+}
+</script>
+</body>
+</html>

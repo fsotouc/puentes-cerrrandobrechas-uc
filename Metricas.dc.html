@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;background:#FBF5EC}*{box-sizing:border-box}a{color:#B3472A}a:hover{color:#8E3820}</style></helmet>
+<div data-screen-label="07 Métricas de impacto" style="position:relative;background:#FBF5EC;color:#2B2420;font-family:Nunito, sans-serif;min-height:100%">
+  <header style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 40px;border-bottom:1px solid #E8DCCB;background:#FFFDF9">
+    <div style="display:flex;align-items:center;gap:10px"><svg width="34" height="24" viewBox="0 0 38 26"><path d="M4 20 Q19 -2 34 20" stroke="#B3472A" stroke-width="3.2" fill="none" stroke-linecap="round"></path><path d="M2 20 H36" stroke="#3E5C46" stroke-width="3.2" stroke-linecap="round"></path><circle cx="4" cy="20" r="4" fill="#B3472A"></circle><circle cx="34" cy="20" r="4" fill="#3E5C46"></circle></svg><a href="Landing.dc.html" style="font-family:Fredoka, sans-serif;font-weight:600;font-size:23px;color:inherit;text-decoration:none">Puentes</a><a href="Descubrir.dc.html" style="font-weight:800;font-size:15px;color:#6A5D53;margin-left:12px;text-decoration:none">← Volver</a></div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800"><span style="color:#6A5D53">Ver como:</span>
+      <div style="display:flex;padding:4px;border-radius:999px;background:#F4EADB"><sc-for list="{{ roles }}" as="r" hint-placeholder-count="3"><button onClick="{{ r.pick }}" style="font:800 14px Nunito, sans-serif;padding:9px 16px;border-radius:999px;border:none;cursor:pointer;background:{{ r.bg }};color:{{ r.fg }}">{{ r.label }}</button></sc-for></div>
+    </div>
+  </header>
+  <div style="padding:28px 40px 56px;display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;font-weight:800;color:#6A5D53">{{ who }}</span><h1 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:38px;line-height:1.1">{{ title }}</h1></div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <div style="display:flex;padding:4px;border-radius:999px;background:#F4EADB"><sc-for list="{{ periods }}" as="p" hint-placeholder-count="2"><button onClick="{{ p.pick }}" style="font:800 14px Nunito, sans-serif;padding:10px 16px;border-radius:999px;border:none;cursor:pointer;background:{{ p.bg }};color:#2B2420">{{ p.label }}</button></sc-for></div>
+        <button onClick="{{ download }}" style="font:800 15px Nunito, sans-serif;padding:12px 20px;border-radius:999px;border:none;background:#B3472A;color:#FFFDF9;cursor:pointer">↓ {{ dlLabel }}</button>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+      <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="4">
+        <div style="padding:20px;border-radius:22px;background:#FFFDF9;border:1.5px solid #E8DCCB;display:flex;flex-direction:column;gap:6px">
+          <span style="font-weight:800;font-size:14px;color:#5E5249">{{ k.label }}</span>
+          <span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:42px;line-height:1">{{ k.value }}</span>
+          <span style="font-size:13px;font-weight:800;color:#3E5C46">{{ k.delta }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px">
+      <section style="padding:24px;border-radius:26px;background:#FFFDF9;border:1.5px solid #E8DCCB;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px"><div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:22px">Evolución de habilidades</h2><span style="font-size:14px;color:#5E5249">Autoevaluación de 1 a 5 · encuesta de inicio vs. cierre</span></div><div style="display:flex;gap:14px;font-size:13px;font-weight:800"><span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:4px;background:#E2CBB6"></span>Antes</span><span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:4px;background:#B3472A"></span>Después</span></div></div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <sc-for list="{{ skills }}" as="s" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:150px 1fr 54px;gap:12px;align-items:center">
+              <span style="font-weight:800;font-size:14px">{{ s.label }}</span>
+              <div style="display:flex;flex-direction:column;gap:4px"><span style="height:10px;border-radius:5px;background:#E2CBB6;width:{{ s.bw }}%"></span><span style="height:14px;border-radius:7px;background:#B3472A;width:{{ s.aw }}%"></span></div>
+              <span style="font-weight:800;font-size:14px;color:#3E5C46;text-align:right">+{{ s.diff }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <span style="font-size:13px;color:#6A5D53">{{ nSurvey }} estudiantes respondieron ambas encuestas</span>
+      </section>
+
+      <section style="padding:24px;border-radius:26px;background:#FFFDF9;border:1.5px solid #E8DCCB;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:22px">Nuevas conexiones</h2><span style="font-size:14px;color:#5E5249">Colegios que hoy comparten organizaciones · <b style="color:#B3472A">{{ newLinks }} puentes nuevos</b></span></div>
+        <svg viewBox="0 0 520 300" style="width:100%;height:auto">
+          <g stroke="#E2CBB6" stroke-width="2.5" fill="none"><path d="M90 70 Q170 40 250 90"></path><path d="M90 70 Q130 150 210 200"></path><path d="M430 80 Q340 60 250 90"></path><path d="M450 220 Q350 250 300 210"></path><path d="M70 230 Q140 240 210 200"></path></g>
+          <g stroke="#B3472A" stroke-width="3.5" fill="none" stroke-dasharray="3 7" stroke-linecap="round"><path d="M250 90 Q280 150 300 210"></path><path d="M210 200 Q255 230 300 210"></path><path d="M430 80 Q380 150 300 210"></path><path d="M250 90 Q160 140 210 200"></path></g>
+          <g><circle cx="90" cy="70" r="16" fill="#B3472A"></circle><circle cx="70" cy="230" r="16" fill="#B3472A"></circle><circle cx="430" cy="80" r="16" fill="#B3472A"></circle><circle cx="450" cy="220" r="16" fill="#B3472A"></circle><circle cx="250" cy="90" r="22" fill="#3E5C46"></circle><circle cx="210" cy="200" r="22" fill="#3E5C46"></circle><circle cx="300" cy="210" r="22" fill="#3E5C46"></circle></g>
+          <g font-family="Nunito, sans-serif" font-size="13" font-weight="800" fill="#2B2420"><text x="90" y="40" text-anchor="middle">L. Los Aromos</text><text x="70" y="268" text-anchor="middle">C. Rayén</text><text x="430" y="50" text-anchor="middle">L. Mar Austral</text><text x="450" y="258" text-anchor="middle">L. Quillayes</text><text x="250" y="130" text-anchor="middle" fill="#2C4433">Raíces Urbanas</text><text x="200" y="240" text-anchor="middle" fill="#2C4433">Abrazo Mayor</text><text x="320" y="252" text-anchor="middle" fill="#2C4433">Cocina Común</text></g>
+        </svg>
+        <div style="display:flex;gap:16px;font-size:13px;font-weight:800;flex-wrap:wrap"><span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:50%;background:#B3472A"></span>Colegio</span><span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:50%;background:#3E5C46"></span>Organización</span><span style="display:flex;align-items:center;gap:6px"><svg width="22" height="6"><path d="M1 3H21" stroke="#B3472A" stroke-width="3" stroke-dasharray="3 4"></path></svg>Conexión nueva</span></div>
+      </section>
+    </div>
+
+    <section style="padding:24px;border-radius:26px;background:#3E5C46;color:#FFFDF9;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:28px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:22px">Horas acumuladas por mes</h2><span style="font-size:14px;color:#D8E3D4">{{ hoursNote }}</span></div>
+      <div style="display:flex;align-items:flex-end;gap:10px;height:140px">
+        <sc-for list="{{ months }}" as="m" hint-placeholder-count="6">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end"><span style="font-size:12px;font-weight:800">{{ m.v }}</span><span style="width:100%;max-width:46px;border-radius:10px 10px 4px 4px;background:#F6C9B5;height:{{ m.h }}%"></span><span style="font-size:12px;font-weight:700;color:#D8E3D4">{{ m.m }}</span></div>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+  <sc-if value="{{ toast }}"><div style="position:absolute;left:50%;bottom:28px;transform:translateX(-50%);padding:14px 20px;border-radius:16px;background:#2B2420;color:#FFFDF9;font-weight:800;font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.2)">Generando reporte PDF · {{ periodLabel }}</div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;role&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;colegio&quot;,&quot;osc&quot;,&quot;admin&quot;],&quot;default&quot;:&quot;colegio&quot;,&quot;tsType&quot;:&quot;'colegio'|'osc'|'admin'&quot;}}">
+class Component extends DCLogic {
+  state = { role: new URLSearchParams(location.search).get('role') ?? this.props.role ?? 'colegio', period: 'sem', toast: false };
+  componentDidUpdate(p) { if (p.role !== this.props.role && this.props.role) this.setState({ role: this.props.role }); }
+  renderVals() {
+    const s = this.state, a = s.period === 'anual', f = a ? 1.9 : 1;
+    const fmt = n => Math.round(n).toLocaleString('es-CL');
+    const R = {
+      colegio: { who: 'Liceo Los Aromos · Maipú', title: 'El impacto de tu liceo', k: [['Participación', (a ? 41 : 34) + '%', 'de estudiantes de 1° a 4° medio'], ['Horas acumuladas', fmt(2140 * f), '+18% vs. periodo anterior'], ['Retención', (a ? 82 : 87) + '%', 'terminan lo que empiezan'], ['Organizaciones', a ? '9' : '6', '3 nuevas este periodo']], links: a ? 7 : 4, n: a ? 214 : 118, hours: 'Liceo Los Aromos · todos los cursos', dl: 'Descargar reporte' },
+      osc: { who: 'Fundación Raíces Urbanas', title: 'Lo que hemos construido juntos', k: [['Estudiantes recibidos', fmt(146 * f), 'de 5 colegios'], ['Horas de voluntariado', fmt(1380 * f), '+24% vs. periodo anterior'], ['Retención', (a ? 79 : 84) + '%', 'vuelven a una segunda actividad'], ['Colegios nuevos', a ? '4' : '2', 'llegaron por sugerencia IA']], links: a ? 5 : 3, n: a ? 120 : 71, hours: 'Todas sus oportunidades', dl: 'Descargar reporte' },
+      admin: { who: 'Equipo Puentes · vista general', title: 'Impacto de la red', k: [['Participación promedio', (a ? 29 : 24) + '%', 'en 42 colegios'], ['Horas acumuladas', fmt(18630 * (a ? 1.7 : 1)), '1.248 estudiantes'], ['Retención', (a ? 76 : 81) + '%', 'meta del proyecto: 75%'], ['Conexiones nuevas', a ? '58' : '31', 'entre colegios y OSC']], links: a ? 58 : 31, n: a ? 1012 : 604, hours: '42 colegios · 67 organizaciones', dl: 'Descargar reporte' }
+    }[s.role];
+    const sk = [['Trabajo en equipo', 2.9, 4.1], ['Comunicación', 2.6, 3.8], ['Empatía', 3.3, 4.2], ['Liderazgo', 2.2, 3.3], ['Resolución de problemas', 2.5, 3.4]];
+    const months = (a ? ['Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'] : ['Ago', 'Sep', 'Oct', 'Nov', 'Dic']);
+    const base = { colegio: 420, osc: 280, admin: 3600 }[s.role];
+    const mv = months.map((m, i) => base * (0.55 + 0.45 * Math.sin((i + 1) / months.length * 2.6)));
+    const mx = Math.max(...mv);
+    return {
+      roles: [['colegio', 'Colegio'], ['osc', 'OSC'], ['admin', 'Administración']].map(([v, l]) => ({ label: l, bg: s.role === v ? '#2B2420' : 'transparent', fg: s.role === v ? '#FFFDF9' : '#2B2420', pick: () => this.setState({ role: v }) })),
+      periods: [['sem', '2° semestre 2026'], ['anual', 'Año 2026']].map(([v, l]) => ({ label: l, bg: s.period === v ? '#FFFDF9' : 'transparent', pick: () => this.setState({ period: v }) })),
+      periodLabel: a ? 'Año 2026' : '2° semestre 2026',
+      who: R.who, title: R.title, dlLabel: R.dl, newLinks: R.links, nSurvey: R.n, hoursNote: R.hours,
+      kpis: R.k.map(([label, value, delta]) => ({ label, value, delta })),
+      skills: sk.map(([label, b, af]) => ({ label, bw: b / 5 * 100, aw: af / 5 * 100, diff: (af - b).toFixed(1).replace('.', ',') })),
+      months: months.map((m, i) => ({ m, v: fmt(mv[i]), h: Math.round(mv[i] / mx * 78) })),
+      toast: s.toast,
+      download: () => { this.setState({ toast: true }); clearTimeout(this.t); this.t = setTimeout(() => this.setState({ toast: false }), 2200); }
+    };
+  }
+}
+</script>
+</body>
+</html>

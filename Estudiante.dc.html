@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><script src="./image-slot.js"></script><style>body{margin:0;background:#FBF5EC}*{box-sizing:border-box}a{color:#B3472A}a:hover{color:#8E3820}</style></helmet>
+<div data-screen-label="08 Perfil estudiante" style="container-type:inline-size;background:#FBF5EC;color:#2B2420;font-family:Nunito, sans-serif;min-height:100%">
+  <div style="position:relative;background:#B3472A;color:#FFFDF9;padding:22px clamp(18px,4cqi,48px) 90px;overflow:hidden">
+    <svg viewBox="0 0 400 100" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:16px;width:100%;height:70px;opacity:.5"><path d="M0 90 Q100 10 200 90 Q300 10 400 90" stroke="#F6C9B5" stroke-width="3" fill="none" stroke-dasharray="2 10" stroke-linecap="round"></path></svg>
+    <div style="display:flex;justify-content:space-between;align-items:center"><div style="display:flex;align-items:center;gap:10px"><svg width="34" height="24" viewBox="0 0 38 26"><path d="M4 20 Q19 -2 34 20" stroke="#FFFDF9" stroke-width="3.2" fill="none" stroke-linecap="round"></path><path d="M2 20 H36" stroke="#F6C9B5" stroke-width="3.2" stroke-linecap="round"></path><circle cx="4" cy="20" r="4" fill="#FFFDF9"></circle><circle cx="34" cy="20" r="4" fill="#F6C9B5"></circle></svg><a href="Landing.dc.html" style="font-family:Fredoka, sans-serif;font-weight:600;font-size:22px;color:inherit;text-decoration:none">Puentes</a></div><button style="font:800 14px Nunito, sans-serif;padding:10px 16px;border-radius:999px;border:2px solid #FFFDF9;background:transparent;color:#FFFDF9;cursor:pointer;min-height:44px">Compartir portafolio</button></div>
+  </div>
+  <div style="max-width:880px;margin:-70px auto 0;padding:0 clamp(18px,4cqi,48px) 56px;position:relative;display:flex;flex-direction:column;gap:22px">
+    <div style="padding:24px;border-radius:28px;background:#FFFDF9;border:1.5px solid #E8DCCB;box-shadow:0 12px 30px rgba(80,50,30,.08);display:flex;flex-wrap:wrap;gap:20px;align-items:center">
+      <div style="width:96px;height:96px;border-radius:50%;overflow:hidden;border:4px solid #FBF5EC;background:#FBEBC5;flex:none"><image-slot id="est-avatar" shape="circle" placeholder="Avatar ilustrado" style="width:100%;height:100%"></image-slot></div>
+      <div style="flex:1;min-width:200px;display:flex;flex-direction:column;gap:4px"><h1 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:32px;line-height:1.1">Valentina Rojas</h1><span style="font-size:16px;color:#5E5249">3° Medio B · Liceo Los Aromos, Maipú</span></div>
+      <div style="display:flex;gap:22px">
+        <div style="display:flex;flex-direction:column"><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:36px;line-height:1;color:#B3472A">46</span><span style="font-size:13px;font-weight:800">horas</span></div>
+        <div style="display:flex;flex-direction:column"><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:36px;line-height:1;color:#3E5C46">3</span><span style="font-size:13px;font-weight:800">organizaciones</span></div>
+        <div style="display:flex;flex-direction:column"><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:36px;line-height:1;color:#7A5A12">5</span><span style="font-size:13px;font-weight:800">insignias</span></div>
+      </div>
+    </div>
+
+    <section style="display:flex;flex-direction:column;gap:12px">
+      <h2 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:24px">Mis insignias</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px">
+        <sc-for list="{{ badges }}" as="b" hint-placeholder-count="5">
+          <div style="padding:18px 14px;border-radius:22px;background:#FFFDF9;border:1.5px solid #E8DCCB;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center">
+            <span style="width:64px;height:64px;border-radius:50%;background:{{ b.bg }};display:grid;place-items:center;border:4px solid {{ b.ring }};font-family:Fredoka, sans-serif;font-weight:600;font-size:22px;color:{{ b.fg }}">{{ b.ini }}</span>
+            <b style="font-size:15px;line-height:1.2">{{ b.label }}</b>
+            <span style="display:flex;gap:4px"><sc-for list="{{ b.dots }}" as="d" hint-placeholder-count="3"><span style="width:10px;height:10px;border-radius:50%;background:{{ d }}"></span></sc-for></span>
+            <span style="font-size:12px;font-weight:700;color:#6A5D53">{{ b.level }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:12px">
+      <h2 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:24px">Donde he participado</h2>
+      <div style="display:flex;flex-direction:column;gap:0;position:relative">
+        <sc-for list="{{ exp }}" as="e" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:28px 1fr;gap:14px">
+            <div style="display:flex;flex-direction:column;align-items:center"><span style="width:20px;height:20px;border-radius:50%;background:{{ e.color }};border:4px solid #FBF5EC;margin-top:20px;flex:none"></span><span style="flex:1;width:0;border-left:3px dotted #D9CBB8"></span></div>
+            <div style="margin-bottom:14px;padding:18px 20px;border-radius:22px;background:#FFFDF9;border:1.5px solid #E8DCCB;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline"><b style="font-family:Fredoka, sans-serif;font-weight:600;font-size:19px">{{ e.title }}</b><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:19px;color:#B3472A">{{ e.horas }} h</span></div>
+              <span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px;color:#5E5249"><b style="color:#2B2420">{{ e.osc }}</b> · {{ e.fecha }} <span style="display:inline-flex;align-items:center;gap:4px;padding:2px 8px 2px 3px;border-radius:999px;background:#DFE8DB;color:#3E5C46;font-weight:800;font-size:11px"><svg width="13" height="13" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#3E5C46"></circle><path d="M4.5 8.2l2.2 2.2 4.6-4.8" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>Verificada</span></span>
+              <p style="margin:0;font-size:15px;line-height:1.5;font-style:italic;color:#4A3F37">“{{ e.quote }}”</p>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><span style="font-size:13px;font-weight:700;color:#3E5C46">Horas validadas por Prof. Carolina Muñoz</span><a href="#" style="font-size:14px;font-weight:800">Certificado PDF</a></div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const lv = n => ['#B3472A', '#B3472A', '#B3472A'].map((c, i) => i < n ? c : '#E8DCCB');
+    return {
+      badges: [
+        ['TE', 'Trabajo en equipo', 3, '#F6DCCF', '#B3472A', '#8E3820'],
+        ['EM', 'Empatía', 3, '#DFE8DB', '#3E5C46', '#2C4433'],
+        ['CO', 'Comunicación', 2, '#FBEBC5', '#E9B44C', '#6B4E0E'],
+        ['LI', 'Liderazgo', 1, '#F6DCCF', '#B3472A', '#8E3820'],
+        ['CA', 'Conciencia ambiental', 2, '#DFE8DB', '#3E5C46', '#2C4433']
+      ].map(([ini, label, n, bg, ring, fg]) => ({ ini, label, bg, ring, fg, dots: lv(n), level: ['Inicial', 'En desarrollo', 'Destacada'][n - 1] })),
+      exp: [
+        { title: 'Huerto comunitario en la plaza Los Copihues', osc: 'Fundación Raíces Urbanas', fecha: 'oct – nov 2026', horas: 18, color: '#3E5C46', quote: 'Aprendí que organizar a 12 personas es más difícil que plantar, pero mucho más entretenido.' },
+        { title: 'Tardes de lectura con personas mayores', osc: 'Red Abrazo Mayor', fecha: 'abr – jun 2026', horas: 16, color: '#B3472A', quote: 'Don Hernán me contó cómo era Maipú cuando había puros fundos. Ahora lo visito igual.' },
+        { title: 'Cocina solidaria de los sábados', osc: 'Cocina Común La Granja', fecha: 'nov 2025', horas: 12, color: '#E9B44C', quote: 'Cocinamos 200 almuerzos. Me tocó coordinar el equipo de reparto.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

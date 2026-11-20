@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;background:#FBF5EC}*{box-sizing:border-box}a{color:#B3472A}a:hover{color:#8E3820}</style></helmet>
+<div ref="{{ rootRef }}" data-screen-label="03 Descubrir" style="container-type:inline-size;background:#FBF5EC;color:#2B2420;font-family:Nunito, sans-serif;min-height:100%">
+  <header style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(16px,3cqi,40px);border-bottom:1px solid #E8DCCB;background:#FFFDF9">
+    <div style="display:flex;align-items:center;gap:32px">
+      <div style="display:flex;align-items:center;gap:10px"><svg width="34" height="24" viewBox="0 0 38 26"><path d="M4 20 Q19 -2 34 20" stroke="#B3472A" stroke-width="3.2" fill="none" stroke-linecap="round"></path><path d="M2 20 H36" stroke="#3E5C46" stroke-width="3.2" stroke-linecap="round"></path><circle cx="4" cy="20" r="4" fill="#B3472A"></circle><circle cx="34" cy="20" r="4" fill="#3E5C46"></circle></svg><a href="Landing.dc.html" style="font-family:Fredoka, sans-serif;font-weight:600;font-size:23px;color:inherit;text-decoration:none">Puentes</a></div>
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}"><nav style="display:flex;gap:6px;font-weight:800;font-size:15px"><a href="Descubrir.dc.html" style="padding:9px 14px;border-radius:999px;background:#F6DCCF;color:#8E3820;text-decoration:none">Descubrir</a><a href="Documentos.dc.html" style="padding:9px 14px;color:#2B2420;text-decoration:none">Mis cursos</a><a href="Documentos.dc.html" style="padding:9px 14px;color:#2B2420;text-decoration:none">Documentos</a><a href="Metricas.dc.html?role=colegio" style="padding:9px 14px;color:#2B2420;text-decoration:none">Impacto</a></nav></sc-if>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px"><sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}"><span style="text-align:right;font-size:13px;line-height:1.25"><b>Carolina Muñoz</b><br><span style="color:#6A5D53">Liceo Los Aromos</span></span></sc-if><span style="width:40px;height:40px;border-radius:50%;background:#E9B44C;display:grid;place-items:center;font-weight:800">CM</span></div>
+  </header>
+
+  <div style="display:flex;gap:28px;padding:clamp(18px,3cqi,32px) clamp(16px,3cqi,40px) 48px;align-items:flex-start">
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <aside style="flex:none;width:250px;display:flex;flex-direction:column;gap:22px;position:sticky;top:16px">
+        <div style="display:flex;flex-direction:column;gap:10px"><span style="font-weight:800;font-size:14px">Causa</span><div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ causas }}" as="c" hint-placeholder-count="6"><button onClick="{{ c.toggle }}" style="font:700 14px Nunito, sans-serif;padding:7px 12px;border-radius:999px;cursor:pointer;background:{{ c.bg }};color:{{ c.fg }};border:1.5px solid {{ c.border }}">{{ c.label }}</button></sc-for></div></div>
+        <label style="display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:14px">Comuna<select style="font:600 15px Nunito, sans-serif;padding:11px 12px;border-radius:12px;border:1.5px solid #D9CBB8;background:#FFFDF9;color:#2B2420"><option>Maipú y alrededores (10 km)</option><option>Toda la región</option></select></label>
+        <div style="display:flex;flex-direction:column;gap:10px"><span style="font-weight:800;font-size:14px">Modalidad</span><div style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600"><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" checked style="width:18px;height:18px;accent-color:#B3472A"></input>Presencial</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" checked style="width:18px;height:18px;accent-color:#B3472A"></input>Online</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" style="width:18px;height:18px;accent-color:#B3472A"></input>Híbrido</label></div></div>
+        <label style="display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:14px">Fecha<select style="font:600 15px Nunito, sans-serif;padding:11px 12px;border-radius:12px;border:1.5px solid #D9CBB8;background:#FFFDF9;color:#2B2420"><option>Octubre – diciembre 2026</option><option>Este mes</option></select></label>
+        <div style="display:flex;flex-direction:column;gap:10px"><span style="font-weight:800;font-size:14px">Habilidades que se desarrollan</span><div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ skills }}" as="c" hint-placeholder-count="6"><button onClick="{{ c.toggle }}" style="font:700 14px Nunito, sans-serif;padding:7px 12px;border-radius:999px;cursor:pointer;background:{{ c.bg }};color:{{ c.fg }};border:1.5px solid {{ c.border }}">{{ c.label }}</button></sc-for></div></div>
+      </aside>
+    </sc-if>
+
+    <main style="flex:1;min-width:0;display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:14px">
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:14px;font-weight:800;color:#6A5D53">3° Medio B · 32 estudiantes</span><h1 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:clamp(28px,3.2cqi,38px);line-height:1.1">Oportunidades para tu curso</h1></div>
+        <div style="display:flex;padding:4px;border-radius:999px;background:#F4EADB" role="tablist">
+          <button onClick="{{ showList }}" style="font:800 14px Nunito, sans-serif;padding:10px 18px;border-radius:999px;border:none;cursor:pointer;background:{{ listBg }};color:#2B2420;min-height:44px">☰ Lista</button>
+          <button onClick="{{ showMap }}" style="font:800 14px Nunito, sans-serif;padding:10px 18px;border-radius:999px;border:none;cursor:pointer;background:{{ mapBg }};color:#2B2420;min-height:44px">◎ Mapa</button>
+        </div>
+      </div>
+      <sc-if value="{{ narrow }}">
+        <div style="display:flex;gap:8px;overflow-x:auto;margin:0 -16px;padding:0 16px 4px">
+          <button style="flex:none;font:800 14px Nunito, sans-serif;padding:10px 14px;border-radius:999px;border:1.5px solid #2B2420;background:#2B2420;color:#FFFDF9;min-height:44px">Filtros · 3</button>
+          <sc-for list="{{ causas }}" as="c" hint-placeholder-count="5"><button onClick="{{ c.toggle }}" style="flex:none;font:700 14px Nunito, sans-serif;padding:10px 14px;border-radius:999px;cursor:pointer;min-height:44px;background:{{ c.bg }};color:{{ c.fg }};border:1.5px solid {{ c.border }}">{{ c.label }}</button></sc-for>
+        </div>
+      </sc-if>
+      <div style="display:flex;gap:14px;align-items:center;padding:14px 18px;border-radius:18px;background:#DFE8DB;color:#2C4433">
+        <span style="flex:none;width:36px;height:36px;border-radius:12px;background:#3E5C46;color:#fff;display:grid;place-items:center;font-size:18px">✦</span>
+        <span style="font-size:15px;line-height:1.45">Ordenamos según el perfil de tu liceo: <b>Maipú, viernes en la tarde, medioambiente y personas mayores</b>. <a href="Registro.dc.html?path=colegio" style="color:#2C4433;font-weight:800">Ajustar perfil</a></span>
+      </div>
+
+      <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:18px">
+          <sc-for list="{{ opps }}" as="o" hint-placeholder-count="6">
+            <article style="display:flex;flex-direction:column;background:#FFFDF9;border:1.5px solid #E8DCCB;border-radius:24px;overflow:hidden" style-hover="box-shadow:0 10px 28px rgba(80,50,30,.12)">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:18px 18px 0">
+                <span style="padding:5px 11px;border-radius:999px;font-size:13px;font-weight:800;background:{{ o.tagBg }};color:{{ o.tagFg }}">{{ o.causa }}</span>
+                <span style="display:flex;align-items:center;gap:8px"><span style="font-size:12px;font-weight:800;color:#6A5D53;text-align:right;line-height:1.1">afinidad</span><span style="width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#B3472A {{ o.deg }}deg, #F4EADB 0)"><span style="width:42px;height:42px;border-radius:50%;background:#FFFDF9;display:grid;place-items:center;font-family:Fredoka, sans-serif;font-weight:600;font-size:16px">{{ o.match }}%</span></span></span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px;padding:12px 18px 16px;flex:1">
+                <h3 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:21px;line-height:1.2;text-wrap:pretty">{{ o.title }}</h3>
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px;font-weight:700"><span>{{ o.osc }}</span><sc-if value="{{ o.verified }}"><span style="display:inline-flex;align-items:center;gap:4px;padding:3px 9px 3px 4px;border-radius:999px;background:#DFE8DB;color:#3E5C46;font-weight:800;font-size:12px"><svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#3E5C46"></circle><path d="M4.5 8.2l2.2 2.2 4.6-4.8" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>OSC verificada</span></sc-if></div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:#5E5249"><span style="display:inline-flex;align-items:center;gap:5px"><svg width="12" height="14" viewBox="0 0 12 14"><path d="M6 13s5-4.6 5-8A5 5 0 0 0 1 5c0 3.4 5 8 5 8z" fill="#B3472A"></path><circle cx="6" cy="5" r="1.8" fill="#FFFDF9"></circle></svg>{{ o.comuna }}</span><span style="display:inline-flex;align-items:center;gap:5px"><svg width="13" height="13" viewBox="0 0 13 13"><rect x="1" y="2" width="11" height="10" rx="2.5" fill="none" stroke="#3E5C46" stroke-width="1.6"></rect><path d="M1 5.5h11M4 0.5v3M9 0.5v3" stroke="#3E5C46" stroke-width="1.6"></path></svg>{{ o.cuando }}</span><span>{{ o.modalidad }}</span></div>
+                <p style="margin:0;padding:10px 12px;border-radius:14px;background:#FBF5EC;font-size:14px;line-height:1.45;color:#3B322C"><b style="color:#3E5C46">✦ Por qué te lo sugerimos:</b> {{ o.why }}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ o.skills }}" as="s" hint-placeholder-count="3"><span style="padding:4px 10px;border-radius:999px;border:1.5px solid #E8DCCB;font-size:13px;font-weight:700">{{ s }}</span></sc-for></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-top:1px solid #EFE4D4"><span style="font-size:14px;font-weight:800">{{ o.cupos }} cupos libres</span><a href="Oportunidad.dc.html" style="font-weight:800;font-size:15px;padding:10px 16px;border-radius:999px;background:#2B2420;color:#FFFDF9;text-decoration:none">Ver detalle</a></div>
+            </article>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isMap }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px">
+          <div style="position:relative;min-height:{{ mapH }};border-radius:24px;overflow:hidden;background:#EFE6D3;border:1.5px solid #E8DCCB">
+            <svg viewBox="0 0 600 560" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%"><path d="M0 120 C150 140 260 90 600 160" stroke="#FFFDF9" stroke-width="14" fill="none"></path><path d="M80 0 C120 200 200 380 160 560" stroke="#FFFDF9" stroke-width="10" fill="none"></path><path d="M0 380 C200 360 380 420 600 390" stroke="#FFFDF9" stroke-width="10" fill="none"></path><path d="M420 0 C400 180 460 360 430 560" stroke="#FFFDF9" stroke-width="8" fill="none"></path><ellipse cx="300" cy="250" rx="70" ry="48" fill="#D3DFCC"></ellipse><ellipse cx="520" cy="470" rx="60" ry="40" fill="#D3DFCC"></ellipse><path d="M120 290 Q230 200 300 250" stroke="#B3472A" stroke-width="3" fill="none" stroke-dasharray="2 8" stroke-linecap="round"></path><path d="M120 290 Q200 360 270 400" stroke="#B3472A" stroke-width="3" fill="none" stroke-dasharray="2 8" stroke-linecap="round"></path></svg>
+            <div style="position:absolute;left:20%;top:52%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;padding:6px 12px 6px 6px;border-radius:999px;background:#2B2420;color:#FFFDF9;font-size:13px;font-weight:800;white-space:nowrap"><span style="width:24px;height:24px;border-radius:50%;background:#E9B44C;color:#2B2420;display:grid;place-items:center;font-size:11px">LA</span>Tu liceo</div>
+            <sc-for list="{{ pins }}" as="p" hint-placeholder-count="5">
+              <button onClick="{{ p.pick }}" style="position:absolute;left:{{ p.x }}%;top:{{ p.y }}%;transform:translate(-50%,-100%);border:none;background:none;cursor:pointer;padding:0;display:flex;flex-direction:column;align-items:center">
+                <span style="padding:6px 10px;border-radius:14px;font:800 13px Nunito, sans-serif;background:{{ p.bg }};color:{{ p.fg }};box-shadow:0 4px 12px rgba(60,40,20,.18);white-space:nowrap">{{ p.match }}%</span>
+                <span style="width:3px;height:10px;background:{{ p.bg }}"></span>
+              </button>
+            </sc-for>
+            <span style="position:absolute;left:14px;bottom:12px;font-size:12px;font-weight:700;color:#6A5D53;background:#FFFDF9;padding:4px 10px;border-radius:999px">Mapa ilustrativo · Maipú y alrededores</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ opps }}" as="o" hint-placeholder-count="5">
+              <button onClick="{{ o.pick }}" style="text-align:left;display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:18px;cursor:pointer;font-family:Nunito, sans-serif;color:#2B2420;background:#FFFDF9;border:2px solid {{ o.selBorder }}">
+                <span style="flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#B3472A {{ o.deg }}deg, #F4EADB 0)"><span style="width:38px;height:38px;border-radius:50%;background:#FFFDF9;display:grid;place-items:center;font-family:Fredoka, sans-serif;font-weight:600;font-size:14px">{{ o.match }}%</span></span>
+                <span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:17px;line-height:1.2">{{ o.title }}</span><span style="font-size:13px;color:#5E5249">{{ o.osc }} · {{ o.comuna }} · {{ o.dist }}</span><span style="font-size:13px;color:#3E5C46;font-weight:700">✦ {{ o.why }}</span></span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { narrow: false, view: 'list', causas: [], skills: ['Trabajo en equipo'], sel: 0 };
+  rootRef = el => {
+    if (!el || el === this._el) return;
+    this._el = el; this.ro && this.ro.disconnect();
+    const upd = w => { const n = w < 760; if (n !== this.state.narrow) this.setState({ narrow: n }); };
+    this.ro = new ResizeObserver(e => upd(e[0].contentRect.width));
+    this.ro.observe(el); upd(el.getBoundingClientRect().width);
+  };
+    componentWillUnmount() { this.ro && this.ro.disconnect(); }
+  toggle(k, v) { this.setState(s => ({ [k]: s[k].includes(v) ? s[k].filter(x => x !== v) : [...s[k], v] })); }
+  chip(on) { return on ? { bg: '#B3472A', fg: '#FFFDF9', border: '#B3472A' } : { bg: '#FFFDF9', fg: '#2B2420', border: '#D9CBB8' }; }
+  renderVals() {
+    const s = this.state;
+    const tags = { Medioambiente: ['#DFE8DB', '#2C4433'], 'Personas mayores': ['#F6DCCF', '#8E3820'], Educación: ['#FBEBC5', '#6B4E0E'], Alimentación: ['#F6DCCF', '#8E3820'], Animales: ['#FBEBC5', '#6B4E0E'] };
+    const data = [
+      { title: 'Huerto comunitario en la plaza Los Copihues', osc: 'Fundación Raíces Urbanas', causa: 'Medioambiente', comuna: 'Maipú', dist: '1,2 km', cuando: 'Viernes 15:00–18:00', modalidad: 'Presencial', match: 94, why: 'Coincide en comuna, horario de viernes e interés en medioambiente.', skills: ['Trabajo en equipo', 'Liderazgo', 'Conciencia ambiental'], cupos: 12, x: 50, y: 44 },
+      { title: 'Tardes de lectura con personas mayores', osc: 'Red Abrazo Mayor', causa: 'Personas mayores', comuna: 'Cerrillos', dist: '3,8 km', cuando: 'Jueves 16:00–17:30', modalidad: 'Presencial', match: 88, why: 'Tu curso marcó personas mayores y queda a 15 min en micro.', skills: ['Empatía', 'Comunicación', 'Escucha activa'], cupos: 8, x: 70, y: 22 },
+      { title: 'Tutorías digitales para vecinas y vecinos', osc: 'Taller Digital Comunitario', causa: 'Educación', comuna: 'Online', dist: 'Online', cuando: 'Martes 17:00–18:30', modalidad: 'Online', match: 81, why: 'Es online y calza con el taller de computación del martes.', skills: ['Comunicación', 'Paciencia', 'Herramientas digitales'], cupos: 15, x: 82, y: 58 },
+      { title: 'Cocina solidaria de los sábados', osc: 'Cocina Común La Granja', causa: 'Alimentación', comuna: 'Estación Central', dist: '6,1 km', cuando: 'Sábado 10:00–13:00', modalidad: 'Presencial', match: 72, why: 'Interés en alimentación; el horario es fuera de la jornada escolar.', skills: ['Organización', 'Trabajo en equipo'], cupos: 6, x: 45, y: 74 },
+      { title: 'Jornada de adopción responsable', osc: 'Fundación Patitas del Sur', causa: 'Animales', comuna: 'Maipú', dist: '2,4 km', cuando: 'Sábado 26 oct · puntual', modalidad: 'Presencial', match: 66, why: 'Está cerca, pero es una actividad puntual de un solo día.', skills: ['Comunicación', 'Responsabilidad'], cupos: 10, x: 28, y: 26 },
+      { title: 'Biblioteca viajera en la villa El Abrazo', osc: 'Biblioteca Viva Pudahuel', causa: 'Educación', comuna: 'Pudahuel', dist: '7,5 km', cuando: 'Miércoles 15:30–17:30', modalidad: 'Híbrido', match: 63, why: 'Desarrolla comunicación, que el curso marcó como meta.', skills: ['Creatividad', 'Comunicación'], cupos: 9, x: 18, y: 82 }
+    ];
+    const filtered = data.filter(o => !s.causas.length || s.causas.includes(o.causa));
+    const opps = filtered.map((o, i) => ({ ...o, deg: Math.round(o.match * 3.6), verified: o.osc !== 'Biblioteca Viva Pudahuel', tagBg: tags[o.causa][0], tagFg: tags[o.causa][1], selBorder: s.sel === i ? '#B3472A' : '#E8DCCB', pick: () => this.setState({ sel: i }) }));
+    return {
+      rootRef: this.rootRef, narrow: s.narrow, wide: !s.narrow,
+      isList: s.view === 'list', isMap: s.view === 'map',
+      showList: () => this.setState({ view: 'list' }), showMap: () => this.setState({ view: 'map' }),
+      listBg: s.view === 'list' ? '#FFFDF9' : 'transparent', mapBg: s.view === 'map' ? '#FFFDF9' : 'transparent',
+      mapH: s.narrow ? '340px' : '560px',
+      causas: ['Medioambiente', 'Personas mayores', 'Educación', 'Alimentación', 'Animales'].map(l => ({ label: l, ...this.chip(s.causas.includes(l)), toggle: () => this.toggle('causas', l) })),
+      skills: ['Trabajo en equipo', 'Liderazgo', 'Comunicación', 'Empatía', 'Organización', 'Herramientas digitales'].map(l => ({ label: l, ...this.chip(s.skills.includes(l)), toggle: () => this.toggle('skills', l) })),
+      opps,
+      pins: opps.map((o, i) => ({ x: o.x, y: o.y, match: o.match, bg: s.sel === i ? '#B3472A' : '#FFFDF9', fg: s.sel === i ? '#FFFDF9' : '#2B2420', pick: o.pick }))
+    };
+  }
+}
+</script>
+</body>
+</html>

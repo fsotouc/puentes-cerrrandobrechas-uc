@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;background:#FBF5EC}*{box-sizing:border-box}a{color:#B3472A}a:hover{color:#8E3820}</style></helmet>
+<div data-screen-label="06 Documentos" style="background:#FBF5EC;color:#2B2420;font-family:Nunito, sans-serif;min-height:100%">
+  <header style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 40px;border-bottom:1px solid #E8DCCB;background:#FFFDF9">
+    <div style="display:flex;align-items:center;gap:32px">
+      <div style="display:flex;align-items:center;gap:10px"><svg width="34" height="24" viewBox="0 0 38 26"><path d="M4 20 Q19 -2 34 20" stroke="#B3472A" stroke-width="3.2" fill="none" stroke-linecap="round"></path><path d="M2 20 H36" stroke="#3E5C46" stroke-width="3.2" stroke-linecap="round"></path><circle cx="4" cy="20" r="4" fill="#B3472A"></circle><circle cx="34" cy="20" r="4" fill="#3E5C46"></circle></svg><a href="Landing.dc.html" style="font-family:Fredoka, sans-serif;font-weight:600;font-size:23px;color:inherit;text-decoration:none">Puentes</a></div>
+      <nav style="display:flex;gap:6px;font-weight:800;font-size:15px"><a href="Descubrir.dc.html" style="padding:9px 14px;color:#2B2420;text-decoration:none">Descubrir</a><a href="Documentos.dc.html" style="padding:9px 14px;color:#2B2420;text-decoration:none">Mis cursos</a><a href="Documentos.dc.html" style="padding:9px 14px;border-radius:999px;background:#F6DCCF;color:#8E3820;text-decoration:none">Documentos</a><a href="Metricas.dc.html?role=colegio" style="padding:9px 14px;color:#2B2420;text-decoration:none">Impacto</a></nav>
+    </div>
+    <span style="width:40px;height:40px;border-radius:50%;background:#E9B44C;display:grid;place-items:center;font-weight:800">CM</span>
+  </header>
+  <div style="padding:28px 40px 56px;display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;font-weight:800;color:#6A5D53">Huerto comunitario · Fundación Raíces Urbanas</span><h1 style="margin:0;font-family:Fredoka, sans-serif;font-weight:600;font-size:38px;line-height:1.1">Documentos y seguimiento · 3° Medio B</h1></div>
+      <div style="display:flex;gap:10px"><button style="font:800 15px Nunito, sans-serif;padding:12px 18px;border-radius:999px;border:1.5px solid #2B2420;background:transparent;cursor:pointer">Recordar a apoderados ({{ pendAuth }})</button><button style="font:800 15px Nunito, sans-serif;padding:12px 18px;border-radius:999px;border:none;background:#B3472A;color:#FFFDF9;cursor:pointer">↑ Subir documentos</button></div>
+    </div>
+
+    <div style="padding:22px 24px;border-radius:24px;background:#F6DCCF;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:800;font-size:14px;color:#5E2513">Autorizaciones de apoderados</span><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:40px;line-height:1;color:#5E2513">{{ authDone }} de 12</span></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative">
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center"><span style="width:38px;height:38px;border-radius:50%;background:#3E5C46;color:#fff;display:grid;place-items:center;font-weight:800;position:relative;z-index:1">✓</span><b style="font-size:14px;color:#5E2513">Enlace enviado</b><span style="font-size:13px;color:#5E2513">12 apoderados · 14 oct</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center"><span style="width:38px;height:38px;border-radius:50%;background:#B3472A;color:#fff;display:grid;place-items:center;font-weight:800;position:relative;z-index:1">2</span><b style="font-size:14px;color:#5E2513">Firmado por apoderado</b><span style="font-size:13px;color:#5E2513">{{ authDone }} firmadas</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center"><span style="width:38px;height:38px;border-radius:50%;background:#FFFDF9;color:#8E3820;display:grid;place-items:center;font-weight:800;position:relative;z-index:1;border:2px solid #B3472A">3</span><b style="font-size:14px;color:#5E2513">Validado por ti</b><span style="font-size:13px;color:#5E2513">antes del 25 oct</span></div>
+        <svg viewBox="0 0 300 20" preserveAspectRatio="none" style="position:absolute;top:9px;left:16%;width:68%;height:20px"><path d="M0 10 H300" stroke="#B3472A" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"></path></svg>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+      <sc-for list="{{ tipos }}" as="t" hint-placeholder-count="5">
+        <button onClick="{{ t.pick }}" style="text-align:left;display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:20px;cursor:pointer;font-family:Nunito, sans-serif;color:#2B2420;background:#FFFDF9;border:2px solid {{ t.border }}">
+          <span style="font-weight:800;font-size:14px">{{ t.label }}</span>
+          <span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:26px;line-height:1">{{ t.done }}<span style="font-size:16px;color:#6A5D53">/12</span></span>
+          <span style="height:7px;border-radius:4px;background:#F4EADB;overflow:hidden"><span style="display:block;height:100%;width:{{ t.pct }}%;background:#3E5C46"></span></span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:22px;align-items:start">
+      <section style="border-radius:24px;background:#FFFDF9;border:1.5px solid #E8DCCB;overflow:hidden">
+        <div style="display:grid;grid-template-columns:1.6fr repeat(5,1fr) 70px;gap:8px;padding:14px 20px;background:#F4EADB;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#5E5249">
+          <span>Estudiante</span><span>Autorización</span><span>Encuesta inicio</span><span>Bitácora</span><span>Encuesta cierre</span><span>Certificado</span><span style="text-align:right">Horas</span>
+        </div>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="10">
+          <div style="display:grid;grid-template-columns:1.6fr repeat(5,1fr) 70px;gap:8px;padding:11px 20px;border-top:1px solid #EFE4D4;align-items:center;font-size:14px">
+            <span style="display:flex;align-items:center;gap:10px;min-width:0"><span style="flex:none;width:32px;height:32px;border-radius:50%;background:{{ r.color }};display:grid;place-items:center;font-weight:800;font-size:12px">{{ r.ini }}</span><span style="display:flex;flex-direction:column;min-width:0"><a href="Estudiante.dc.html" style="font-weight:800;color:#2B2420;text-decoration:none" style-hover="text-decoration:underline">{{ r.name }}</a><span style="font-size:12px;color:#6A5D53">{{ r.edad }} años</span></span></span>
+            <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="5">
+              <button onClick="{{ c.toggle }}" title="Clic para cambiar estado" style="justify-self:start;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;cursor:pointer;font:800 12px Nunito, sans-serif;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.fg }}">{{ c.label }}</button>
+            </sc-for>
+            <b style="text-align:right;font-size:15px">{{ r.horas }}</b>
+          </div>
+        </sc-for>
+      </section>
+      <aside style="display:flex;flex-direction:column;gap:16px">
+        <div style="padding:24px 20px;border-radius:22px;border:2.5px dashed #D9CBB8;background:#FFFDF9;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+          <span style="width:52px;height:52px;border-radius:16px;background:#F6DCCF;color:#8E3820;display:grid;place-items:center;font-size:24px;font-weight:800">↑</span>
+          <b style="font-size:16px">Arrastra archivos aquí</b>
+          <span style="font-size:14px;color:#5E5249;line-height:1.45">Autorizaciones escaneadas, bitácoras o fotos del cuaderno. Puentes los asigna a cada estudiante.</span>
+          <button style="font:800 14px Nunito, sans-serif;padding:10px 18px;border-radius:999px;border:1.5px solid #2B2420;background:transparent;cursor:pointer">Elegir archivos</button>
+        </div>
+        <div style="padding:20px;border-radius:22px;background:#FFFDF9;border:1.5px solid #E8DCCB;display:flex;flex-direction:column;gap:12px">
+          <b style="font-size:16px">Últimos movimientos</b>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.4"><span><b>Apoderada de Josefa R.</b> firmó la autorización · hace 2 h</span><span><b>Raíces Urbanas</b> cargó la asistencia del viernes 18 · hace 1 día</span><span><b>Tomás M.</b> respondió la encuesta de inicio · hace 2 días</span></div>
+        </div>
+      </aside>
+    </div>
+    <div style="display:flex;gap:18px;font-size:13px;color:#5E5249;align-items:center"><span style="display:inline-flex;align-items:center;gap:6px"><span style="padding:3px 9px;border-radius:999px;background:#DFE8DB;color:#2C4433;font-weight:800">Completo</span>listo y revisado</span><span style="display:inline-flex;align-items:center;gap:6px"><span style="padding:3px 9px;border-radius:999px;background:#FBEBC5;color:#6B4E0E;font-weight:800;border:1.5px solid #E9B44C">Pendiente</span>falta enviar o firmar</span><span>· Toca un estado para cambiarlo (demo)</span></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tipo: 0, data: null };
+  constructor(p) {
+    super(p);
+    const names = [['Valentina Rojas', 16], ['Benjamín Soto', 16], ['Catalina Fuentes', 17], ['Agustín Muñoz', 16], ['Isidora Pérez', 15], ['Matías Contreras', 17], ['Florencia Díaz', 16], ['Vicente Araya', 16], ['Josefa Reyes', 15], ['Tomás Morales', 17], ['Martina Espinoza', 16], ['Lucas Vergara', 16]];
+    const pattern = ['11110', '11100', '11110', '01000', '11100', '10000', '11110', '00000', '11100', '11000', '11100', '01000'];
+    this.state = { tipo: 0, data: names.map(([n, e], i) => ({ name: n, edad: e, st: pattern[i].split('').map(x => x === '1'), horas: [18, 12, 18, 0, 12, 3, 18, 0, 12, 6, 12, 0][i] })) };
+  }
+  renderVals() {
+    const s = this.state, cols = ['#F6DCCF', '#DFE8DB', '#FBEBC5'];
+    const labels = ['Autorizaciones', 'Encuesta inicial', 'Bitácoras', 'Encuesta cierre', 'Certificados'];
+    return {
+      authDone: s.data.filter(r => r.st[0]).length,
+      pendAuth: s.data.filter(r => !r.st[0]).length,
+      tipos: labels.map((l, k) => { const d = s.data.filter(r => r.st[k]).length; return { label: l, done: d, pct: Math.round(d / 12 * 100), border: s.tipo === k ? '#B3472A' : '#E8DCCB', pick: () => this.setState({ tipo: k }) }; }),
+      rows: s.data.map((r, i) => ({
+        name: r.name, edad: r.edad, horas: r.horas, color: cols[i % 3], ini: r.name.split(' ').map(w => w[0]).join(''),
+        cells: r.st.map((on, k) => ({
+          label: on ? '✓ Completo' : 'Pendiente', bg: on ? '#DFE8DB' : '#FBEBC5', fg: on ? '#2C4433' : '#6B4E0E', border: on ? '#DFE8DB' : (s.tipo === k ? '#B3472A' : '#E9B44C'),
+          toggle: () => this.setState(st => ({ data: st.data.map((x, j) => j !== i ? x : { ...x, st: x.st.map((v, m) => m === k ? !v : v) }) }))
+        }))
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

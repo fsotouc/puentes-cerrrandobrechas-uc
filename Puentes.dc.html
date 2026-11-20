@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;background:#EDE4D6}*{box-sizing:border-box}a{color:#B3472A}a:hover{color:#8E3820}</style></helmet>
+<section id="intro" style="padding:56px 64px 24px;font-family:Nunito, sans-serif;color:#2B2420;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;max-width:1500px">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:12px"><svg width="56" height="38" viewBox="0 0 38 26"><path d="M4 20 Q19 -2 34 20" stroke="#B3472A" stroke-width="3.2" fill="none" stroke-linecap="round"></path><path d="M2 20 H36" stroke="#3E5C46" stroke-width="3.2" stroke-linecap="round"></path><circle cx="4" cy="20" r="4" fill="#B3472A"></circle><circle cx="34" cy="20" r="4" fill="#3E5C46"></circle></svg><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:44px">Puentes</span></div>
+    <p style="margin:0;font-size:18px;line-height:1.55;max-width:560px">Mockup de la plataforma que conecta liceos públicos y subvencionados con organizaciones de la sociedad civil. 8 pantallas, interactivas; la landing y el descubrimiento también en móvil.</p>
+    <a href="Landing.dc.html" style="align-self:flex-start;font-weight:800;font-size:16px;padding:12px 20px;border-radius:999px;background:#B3472A;color:#FFFDF9;text-decoration:none">Abrir prototipo navegable →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:auto 1fr;gap:10px 16px;font-size:15px;line-height:1.45;align-content:start">
+    <span style="display:flex;gap:4px"><span style="width:22px;height:22px;border-radius:6px;background:#B3472A"></span><span style="width:22px;height:22px;border-radius:6px;background:#3E5C46"></span><span style="width:22px;height:22px;border-radius:6px;background:#E9B44C"></span><span style="width:22px;height:22px;border-radius:6px;background:#FBF5EC;border:1px solid #D9CBB8"></span></span><span><b>Terracota</b> para acciones y colegios, <b>salvia</b> para organizaciones y “verificada”, mostaza solo como acento, fondos crema. Texto principal con contraste AA.</span>
+    <span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:22px">Aa</span><span><b>Fredoka</b> en titulares (redondeada, cálida) y <b>Nunito</b> en textos.</span>
+    <svg width="96" height="24" viewBox="0 0 96 24"><path d="M6 18 Q27 0 48 18 Q69 0 90 18" stroke="#B3472A" stroke-width="2.5" fill="none" stroke-dasharray="2 6" stroke-linecap="round"></path><circle cx="6" cy="18" r="5" fill="#B3472A"></circle><circle cx="48" cy="18" r="5" fill="#E9B44C"></circle><circle cx="90" cy="18" r="5" fill="#3E5C46"></circle></svg><span><b>Motivo puente</b>: arcos punteados entre puntos; aparece en hero, pasos, autorizaciones, red de conexiones y portafolio.</span>
+    <span style="font-weight:800">Ilustr.</span><span>Los espacios de ilustración son placeholders: arrastra ahí las ilustraciones planas definitivas.</span>
+  </div>
+</section>
+
+<section style="padding:32px 64px;font-family:Nunito, sans-serif">
+  <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:18px"><span style="font:700 12px ui-monospace, Menlo, monospace;padding:4px 8px;background:#2B2420;color:#fff;border-radius:5px">01</span><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:24px;color:#2B2420">Landing · escritorio y móvil</span></div>
+  <div style="display:flex;gap:40px;align-items:flex-start">
+    <div style="width:1280px;flex:none;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,.15)"><dc-import name="Landing" hint-size="1280px,1900px"></dc-import></div>
+    <div style="width:390px;flex:none;border-radius:36px;overflow:hidden;border:10px solid #2B2420;box-shadow:0 10px 40px rgba(60,40,20,.2)"><dc-import name="Landing" hint-size="370px,2800px"></dc-import></div>
+  </div>
+</section>
+
+<section style="padding:32px 64px;font-family:Nunito, sans-serif">
+  <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:18px"><span style="font:700 12px ui-monospace, Menlo, monospace;padding:4px 8px;background:#2B2420;color:#fff;border-radius:5px">02</span><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:24px;color:#2B2420">Registro · camino colegio y camino OSC</span></div>
+  <div style="display:flex;gap:40px;align-items:flex-start">
+    <div style="width:1200px;flex:none;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,.15)"><dc-import name="Registro" path="colegio" hint-size="1200px,1100px"></dc-import></div>
+    <div style="width:1200px;flex:none;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,.15)"><dc-import name="Registro" path="osc" hint-size="1200px,1100px"></dc-import></div>
+  </div>
+</section>
+
+<section style="padding:32px 64px;font-family:Nunito, sans-serif">
+  <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:18px"><span style="font:700 12px ui-monospace, Menlo, monospace;padding:4px 8px;background:#2B2420;color:#fff;border-radius:5px">03</span><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:24px;color:#2B2420">Descubrimiento con matching IA · escritorio y móvil (prueba Lista / Mapa y los filtros de causa)</span></div>
+  <div style="display:flex;gap:40px;align-items:flex-start">
+    <div style="width:1280px;flex:none;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,.15)"><dc-import name="Descubrir" hint-size="1280px,1250px"></dc-import></div>
+    <div style="width:390px;flex:none;border-radius:36px;overflow:hidden;border:10px solid #2B2420;box-shadow:0 10px 40px rgba(60,40,20,.2)"><dc-import name="Descubrir" hint-size="370px,3200px"></dc-import></div>
+  </div>
+</section>
+
+<section style="padding:32px 64px;font-family:Nunito, sans-serif">
+  <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:18px"><span style="font:700 12px ui-monospace, Menlo, monospace;padding:4px 8px;background:#2B2420;color:#fff;border-radius:5px">04</span><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:24px;color:#2B2420">Detalle de oportunidad · prueba «Postular con mi curso»</span></div>
+  <div style="width:1280px;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,.15)"><dc-import name="Oportunidad" hint-size="1280px,1500px"></dc-import></div>
+</section>
+
+<section style="padding:32px 64px;font-family:Nunito, sans-serif">
+  <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:18px"><span style="font:700 12px ui-monospace, Menlo, monospace;padding:4px 8px;background:#2B2420;color:#fff;border-radius:5px">05</span><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:24px;color:#2B2420">Panel de la OSC</span></div>
+  <div style="width:1280px;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,.15)"><dc-import name="Panel OSC" hint-size="1280px,1200px"></dc-import></div>
+</section>
+
+<section style="padding:32px 64px;font-family:Nunito, sans-serif">
+  <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:18px"><span style="font:700 12px ui-monospace, Menlo, monospace;padding:4px 8px;background:#2B2420;color:#fff;border-radius:5px">06</span><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:24px;color:#2B2420">Documentos y seguimiento</span></div>
+  <div style="width:1280px;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,.15)"><dc-import name="Documentos" hint-size="1280px,1150px"></dc-import></div>
+</section>
+
+<section style="padding:32px 64px;font-family:Nunito, sans-serif">
+  <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:18px"><span style="font:700 12px ui-monospace, Menlo, monospace;padding:4px 8px;background:#2B2420;color:#fff;border-radius:5px">07</span><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:24px;color:#2B2420">Métricas de impacto · colegio, OSC y administración</span></div>
+  <div style="display:flex;gap:40px;align-items:flex-start">
+    <div style="width:1280px;flex:none;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,.15)"><dc-import name="Metricas" role="colegio" hint-size="1280px,1000px"></dc-import></div>
+    <div style="width:1280px;flex:none;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,.15)"><dc-import name="Metricas" role="osc" hint-size="1280px,1000px"></dc-import></div>
+    <div style="width:1280px;flex:none;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,.15)"><dc-import name="Metricas" role="admin" hint-size="1280px,1000px"></dc-import></div>
+  </div>
+</section>
+
+<section style="padding:32px 64px 80px;font-family:Nunito, sans-serif">
+  <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:18px"><span style="font:700 12px ui-monospace, Menlo, monospace;padding:4px 8px;background:#2B2420;color:#fff;border-radius:5px">08</span><span style="font-family:Fredoka, sans-serif;font-weight:600;font-size:24px;color:#2B2420">Perfil del estudiante · portafolio</span></div>
+  <div style="display:flex;gap:40px;align-items:flex-start">
+    <div style="width:1000px;flex:none;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,.15)"><dc-import name="Estudiante" hint-size="1000px,1300px"></dc-import></div>
+    <div style="width:390px;flex:none;border-radius:36px;overflow:hidden;border:10px solid #2B2420;box-shadow:0 10px 40px rgba(60,40,20,.2)"><dc-import name="Estudiante" hint-size="370px,1900px"></dc-import></div>
+  </div>
+</section>
+</x-dc>
+</body>
+</html>
